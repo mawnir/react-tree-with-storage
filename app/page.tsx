@@ -291,7 +291,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Hierarchical Task Tree</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">React Tree With Storage</h1>
           <p className="text-gray-600">
             Drag items into folders, rename with double-click, and create nested structures. Changes are saved
             automatically.
@@ -382,7 +382,7 @@ export default function HomePage() {
         </Card>
 
         <div className="text-center text-sm text-gray-500">
-          <p>Built with Next.js, Custom Headless Tree, and Dexie.js</p>
+          <p>Built with Next.js, and Dexie.js</p>
         </div>
       </div>
     </div>

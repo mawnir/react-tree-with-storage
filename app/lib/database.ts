@@ -28,7 +28,7 @@ db.items.hook("creating", (primKey, obj, trans) => {
 })
 
 db.items.hook("updating", (modifications, primKey, obj, trans) => {
-  if (modifications.hasOwnProperty("order") && typeof modifications.order !== "number") {
+  if (modifications.hasOwnProperty("order") && typeof (modifications as Partial<TreeItem>).order !== "number") {
     throw new Error("Order must be a number")
   }
 })

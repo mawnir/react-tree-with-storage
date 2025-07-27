@@ -1,39 +1,33 @@
-# Draggable Tree View Application
+# React Tree With Storage
 
 ## Overview
-Interactive hierarchical tree management system built with Next.js and TypeScript.
+
+Persisting changes in a tree view is one of the trickiest challenges in UI development — so I built **React Tree With Storage** to make it easier.
+
+This is an interactive, hierarchical tree management system built with **Next.js**, **TypeScript**, and **V0**, featuring modern UI, persistence via **DexieDB**, and full keyboard accessibility.
+
+> ⚙️ The tree view is built **from scratch** — no external libraries were used for its logic or behavior.
 
 ## Features
-- 🗂 Hierarchical tree structure
-- 🔄 Drag-and-drop reordering
-- 📝 Inline item editing
-- 📂 Folder creation and management
-- 💾 Persistent changes are stored in a DexieDB
-- 🎨 Modern UI with shadcn/ui
-- ♿️ Accessibility support
-- ⌨️ Keyboard navigation
+
+- 🗂 **Hierarchical Tree Structure** — Manage nested folders and items
+- 🔄 **Drag-and-Drop Reordering** — Intuitive rearrangement of nodes
+- 📝 **Inline Editing** — Rename items directly in the tree
+- 📂 **Folder Creation** — Add folders and organize your content
+- 💾 **Persistent Storage** — Automatically saves changes to **DexieDB**
+- 🎨 **Modern UI** — Powered by **shadcn/ui** and **TailwindCSS**
+- ♿️ **Accessibility Support** — ARIA-compliant components
+- ⌨️ **Keyboard Navigation** — Navigate and edit without a mouse
 
 ## Quick Start
-```bash
-git clone https://github.com/yourusername/draggable-list-app.git
-cd draggable-list-app
-npm install
-npm run dev
-```
 
-## Project Structure
 ```bash
-draggable-list-app/
-├── app/
-│   ├── page.tsx              # Main demo page
-│   └── layout.tsx            # Root layout
-├── components/
-│   ├── draggable-tree-list.tsx
-│   └── ui/                   # shadcn/ui components
-├── lib/
-│   └── database.ts          # Types & interfaces
-└── public/
+git clone https://github.com/mawnir/react-tree-with-storage.git
+cd react-tree-with-storage
+pnpm install
+pnpm dev
 ```
+Then open http://localhost:3000 in your browser.
 
 ## Dependencies
     Next.js 15+

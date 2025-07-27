@@ -89,14 +89,15 @@ export function DraggableTreeList({
     })
 
     // Sort by order at each level
-    const sortByOrder = (items: (TreeItem & { children: TreeItem[] })[]) => {
-      items.sort((a, b) => a.order - b.order)
+    const sortByOrder = (items: TreeItem[]) => {
+      items.sort((a, b) => a.order - b.order);
       items.forEach((item) => {
-        if (item.children.length > 0) {
-          sortByOrder(item.children)
+        if (item.children && item.children.length > 0) {
+          sortByOrder(item.children); // item.children is now known to be TreeItem[]
         }
-      })
-    }
+      });
+    };
+
 
     sortByOrder(rootItems)
     return rootItems
@@ -357,7 +358,8 @@ export function DraggableTreeList({
     }
   }
 
-  const renderTreeItem = (item: TreeItem & { children: TreeItem[] }, depth = 0): React.ReactNode => {
+  //const renderTreeItem = (item: TreeItem & { children: TreeItem[] }, depth = 0): React.ReactNode => {
+  const renderTreeItem = (item: TreeItem, depth = 0): React.ReactNode => {
     const isSelected = selectedItems.has(item.id)
     const isFocused = focusedItem === item.id
     const isEditing = editingItem === item.id
@@ -461,7 +463,7 @@ export function DraggableTreeList({
                 <>
                   <p className="text-sm font-medium text-gray-900 truncate">{item.text}</p>
                   <p className="text-xs text-gray-500">
-                    {item.isFolder ? `Folder • ${item.children.length} items` : "File"} • Created{" "}
+                    {item.isFolder ? `Folder • ${item.children?.length} items` : "File"} • Created{" "}
                     {item.createdAt.toLocaleDateString()}
                   </p>
                 </>
@@ -540,8 +542,8 @@ export function DraggableTreeList({
         )}
 
         {/* Render children if folder is expanded */}
-        {item.isFolder && item.isExpanded && item.children.length > 0 && (
-          <div className="mt-2">{item.children.map((child) => renderTreeItem(child, depth + 1))}</div>
+        {item.isFolder && item.isExpanded && (item.children?.length ?? 0) > 0 && (
+          <div className="mt-2">{item.children?.map((child) => renderTreeItem(child, depth + 1))}</div>
         )}
       </div>
     )
@@ -550,11 +552,7 @@ export function DraggableTreeList({
   return (
     <div className="w-full" role="tree" aria-label="Hierarchical Task List">
       <div className="mb-4 flex items-center gap-2">
-        <Button onClick={onCreateFolder} variant="outline" size="sm">
-          <Folder className="h-4 w-4 mr-2" />
-          Create Folder
-        </Button>
-        <div className="text-xs text-gray-500 ml-4">💡 Double-click to rename • F2 to rename • Drag to reorder</div>
+        <div className="text-xs text-gray-500 ml-4">💡 Double-click to rename • Drag to reorder</div>
       </div>
 
       {treeItems.length === 0 ? (

@@ -8,7 +8,7 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Draggable List App - Headless Tree",
+  title: "React Tree With Storage",
   description:
     "A Next.js application with draggable items",
   generator: 'v0.dev'
