@@ -1,5 +1,7 @@
 # React Tree With Storage
 
+![Tree View Demo](pics/Screenshot-1.png)
+
 ## Overview
 
 Persisting changes in a tree view is one of the trickiest challenges in UI development — so I built **React Tree With Storage** to make it easier.
